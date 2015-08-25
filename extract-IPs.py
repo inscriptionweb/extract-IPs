@@ -24,10 +24,7 @@ def main(args):
                 for i in ip:
                     ips.append(i)
     ips = sort_ips(ips)
-    print ips
     ips = list(set(ips))
-    print ''
-    print ips
     for ip in ips:
         print ip
 
