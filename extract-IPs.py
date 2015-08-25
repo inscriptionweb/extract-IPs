@@ -11,9 +11,18 @@ def parse_args():
 
 def sort_ips(ips):
     """Sort an IP address list."""
-    ipl = [(IP(ip).int(), ip) for ip in ips]
-    ipl.sort()
-    return [ip[1] for ip in ipl]
+    #ipl = [(IP(ip).int(), ip) for ip in ips]
+    #ipl.sort()
+    #return [ip[1] for ip in ipl]
+
+    #for i in range(len(ips)):
+    #    ips[i] = "%3s.%3s.%3s.%3s" % tuple(ips[i].split("."))
+    #    ips.sort()
+    #    for i in range(len(ips)):
+    #        ips[i] = ips[i].replace(" ", "")
+    #return ips
+
+    return sorted(ips, key=lambda ip:IP(ip).int())
 
 def main(args):
     ips = []
@@ -23,8 +32,8 @@ def main(args):
             if len(ip) > 0:
                 for i in ip:
                     ips.append(i)
-    ips = sort_ips(ips)
     ips = list(set(ips))
+    ips = sort_ips(ips)
     for ip in ips:
         print ip
 
